@@ -19,5 +19,8 @@ resource "null_resource" "ecr_image" {
   # Runs the build.sh script which builds the dockerfile and pushes to ecr
   provisioner "local-exec" {
     command = "bash ${path.module}/bin/build.sh ${var.dockerfile_dir} ${var.ecr_repository_url}:${var.docker_image_tag}"
+    environment = {
+      AWS_PROFILE = var.aws_profile
+    }
   }
 }
