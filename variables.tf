@@ -13,3 +13,9 @@ variable "docker_image_tag" {
   description = "This is the tag which will be used for the image that you created"
   default     = "latest"
 }
+
+variable "aws_profile" {
+  type        = string
+  description = "AWS profile to use"
+  default     = "default"
+}
